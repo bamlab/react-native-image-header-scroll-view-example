@@ -1,5 +1,5 @@
 // @flow
-import { createStackNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import {
   Menu,
@@ -39,4 +39,4 @@ export const App = createStackNavigator(
   }
 );
 
-export default App;
+export default createAppContainer(App);
