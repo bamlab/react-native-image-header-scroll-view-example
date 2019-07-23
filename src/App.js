@@ -32,7 +32,7 @@ export const App = createStackNavigator(
     }
   },
   {
-    navigationOptions: {
+    defaultNavigationOptions: {
       headerTintColor: "white",
       headerTransparent: true
     }
