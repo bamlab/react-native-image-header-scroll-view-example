@@ -5,10 +5,19 @@ import {
   Image,
   TouchableOpacity,
   View,
-  Dimensions
+  Dimensions,
+  ImageURISource
 } from "react-native";
+import { NavigationScreenProp } from "react-navigation";
 
-class Button extends React.Component {
+interface Props {
+  target: string;
+  navigation: NavigationScreenProp<{}>;
+  text: string;
+  image: ImageURISource;
+}
+
+class Button extends React.Component<Props> {
   render() {
     const props = this.props;
     return (

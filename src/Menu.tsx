@@ -2,8 +2,13 @@ import React from "react";
 import { StyleSheet, StatusBar, ScrollView } from "react-native";
 import Button from "./Button";
 import tvShowContent from "../assets/tvShowContent";
+import { NavigationScreenProp } from "react-navigation";
 
-const Menu = props => (
+interface Props {
+  navigation: NavigationScreenProp<{}>;
+}
+
+const Menu = (props: Props) => (
   <ScrollView style={styles.page} contentContainerStyle={styles.pageContent}>
     <StatusBar />
     <Button

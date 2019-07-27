@@ -1,14 +1,18 @@
 // @flow
 import React from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View } from "react-native";
 import Animated from "react-native-reanimated";
 
 import {
   AnimatedScrollView,
   fixedContent
-} from "react-native-image-header-scroll-view";
+} from "react-native-scrollview-animation";
 
-class Profile extends React.Component {
+interface ProfileProps {
+  scrollValue: Animated.Value<number>;
+}
+
+class Profile extends React.Component<ProfileProps> {
   render() {
     const { scrollValue } = this.props;
     const height = scrollValue.interpolate({
@@ -38,7 +42,9 @@ class Profile extends React.Component {
   }
 }
 
-class Twitter extends React.Component<Props, {}> {
+interface Props {}
+
+class Twitter extends React.Component<Props> {
   renderHeader() {
     return (
       <View style={{ flex: 1, alignSelf: "stretch", backgroundColor: "red" }} />

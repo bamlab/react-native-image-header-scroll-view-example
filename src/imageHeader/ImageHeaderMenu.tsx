@@ -3,7 +3,11 @@ import { StyleSheet, StatusBar, ScrollView } from "react-native";
 import Button from "../Button";
 import tvShowContent from "../../assets/tvShowContent";
 
-const ImageHeaderMenu = props => (
+interface Props {
+  navigation: NavigationScreenProp<{}>;
+}
+
+const ImageHeaderMenu = (props: Props) => (
   <ScrollView style={styles.page} contentContainerStyle={styles.pageContent}>
     <StatusBar />
     <Button

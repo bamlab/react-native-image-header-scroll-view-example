@@ -1,28 +1,40 @@
-import React from 'react';
-import { StyleSheet, Text, Image, TouchableOpacity, View, Dimensions, RefreshControl } from 'react-native';
-import { Header } from 'react-navigation';
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  Image,
+  TouchableOpacity,
+  View,
+  Dimensions,
+  RefreshControl
+} from "react-native";
+import { Header } from "react-navigation";
 
-import HeaderImageScrollView from 'react-native-image-header-scroll-view';
+import HeaderImageScrollView from "react-native-scrollview-animation";
 
 const MIN_HEIGHT = Header.HEIGHT;
 const MAX_HEIGHT = 200;
 
-class BasicUsage extends React.Component {
+interface State {
+  refreshing: boolean;
+}
+
+class BasicUsage extends React.Component<{}, State> {
   constructor() {
     super();
     this.state = {
-      refreshing: false,
+      refreshing: false
     };
   }
 
   _onRefresh() {
     this.setState({
-      refreshing: true,
+      refreshing: true
     });
 
     setTimeout(() => {
       this.setState({
-        refreshing: false,
+        refreshing: false
       });
     }, 2000);
   }
@@ -34,7 +46,12 @@ class BasicUsage extends React.Component {
           maxHeight={MAX_HEIGHT}
           minHeight={MIN_HEIGHT}
           minOverlayOpacity={0.4}
-          renderHeader={() => <Image source={require('../../assets/pullrefresh.jpg')} style={styles.image} />}
+          renderHeader={() => (
+            <Image
+              source={require("../../assets/pullrefresh.jpg")}
+              style={styles.image}
+            />
+          )}
           refreshControl={
             <RefreshControl
               refreshing={this.state.refreshing}
@@ -43,8 +60,17 @@ class BasicUsage extends React.Component {
             />
           }
           renderTouchableFixedForeground={() => (
-            <View style={{ height: MAX_HEIGHT, justifyContent: 'center', alignItems: 'center' }}>
-              <TouchableOpacity onPress={() => console.log('tap!!')} style={styles.button}>
+            <View
+              style={{
+                height: MAX_HEIGHT,
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <TouchableOpacity
+                onPress={() => console.log("tap!!")}
+                style={styles.button}
+              >
                 <Text style={styles.buttonText}>Click Me!</Text>
               </TouchableOpacity>
             </View>
@@ -60,24 +86,24 @@ class BasicUsage extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   image: {
     height: MAX_HEIGHT,
-    width: Dimensions.get('window').width,
+    width: Dimensions.get("window").width
   },
   button: {
     borderWidth: 1,
     borderRadius: 8,
     paddingVertical: 10,
     paddingHorizontal: 30,
-    borderColor: 'white',
-    backgroundColor: '#00000066',
+    borderColor: "white",
+    backgroundColor: "#00000066"
   },
   buttonText: {
-    color: 'white',
-    backgroundColor: 'transparent',
-  },
+    color: "white",
+    backgroundColor: "transparent"
+  }
 });
 
 export default BasicUsage;
