@@ -4,12 +4,9 @@ import {
   Text,
   Image,
   TouchableOpacity,
-  StatusBar,
   View,
-  ScrollView,
   Dimensions
 } from "react-native";
-import tvShowContent from "../../assets/tvShowContent";
 
 class Button extends React.Component {
   render() {
@@ -32,50 +29,7 @@ class Button extends React.Component {
   }
 }
 
-const Menu = props => (
-  <ScrollView style={styles.page} contentContainerStyle={styles.pageContent}>
-    <StatusBar />
-    <Button
-      {...props}
-      image={require("../../assets/NZ.jpg")}
-      text="BasicUsage"
-      target="basicUsage"
-    />
-    <Button
-      {...props}
-      image={tvShowContent.image}
-      text="TV Show"
-      target="tvShow"
-    />
-    <Button
-      {...props}
-      image={require("../../assets/cutecat.jpg")}
-      text="Cute cat"
-      target="colors"
-    />
-    <Button
-      {...props}
-      image={require("../../assets/avignon.jpg")}
-      text="Flatlist"
-      target="avignon"
-    />
-    <Button
-      {...props}
-      image={require("../../assets/pullrefresh.jpg")}
-      text="Pull To Refresh"
-      target="pullrefresh"
-    />
-  </ScrollView>
-);
-
 const styles = StyleSheet.create({
-  page: {
-    flex: 1
-  },
-  pageContent: {
-    alignItems: "stretch",
-    padding: 30
-  },
   button: {
     height: 100,
     width: Dimensions.get("window").width - 60,
@@ -102,4 +56,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Menu;
+export default Button;

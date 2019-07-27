@@ -2,18 +2,26 @@
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import {
-  Menu,
+  ImageHeaderMenu,
   TvShow,
   BasicUsage,
   ColorsPage,
   Avignon,
   PullToRefresh
-} from "./Pages";
+} from "./imageHeader";
+import Menu from "./Menu";
+import Twitter from "./Twitter";
 
 export const App = createStackNavigator(
   {
     menu: {
       screen: Menu
+    },
+    imageHeaderMenu: {
+      screen: ImageHeaderMenu
+    },
+    twitter: {
+      screen: Twitter
     },
     tvShow: {
       screen: TvShow
